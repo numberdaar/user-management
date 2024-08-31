@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    table, th, td {
+      font-size: 12px;
+    }
+  
+    input, button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    table {
+      font-size: 10px;
+    }
+    
+    h1, h2 {
+      font-size: 18px;
+    }
+  }
+  

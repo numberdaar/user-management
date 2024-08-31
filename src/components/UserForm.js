@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const UserForm = ({ addUser, editUser, editingUser }) => {
   const [user, setUser] = useState({ id: '', name: '', email: '', company: { name: '' } });
-
-  // Update form fields when editing a user
   useEffect(() => {
     if (editingUser) {
       setUser(editingUser);
     } else {
-      setUser({ id: '', name: '', email: '', company: { name: '' } }); // Clear form
+      setUser({ id: '', name: '', email: '', company: { name: '' } });
     }
   }, [editingUser]);
 

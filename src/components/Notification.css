@@ -1,0 +1,39 @@
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Ensure the notification is above other content */
+  display: flex;
+  align-items: center;
+}
+
+.notification p {
+  margin: 0;
+  margin-right: 10px;
+}
+
+.notification button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Different styles for each type */
+.notification.add {
+  background-color: #28a745; /* Green for success */
+}
+
+.notification.edit {
+  background-color: #ffc107; /* Yellow for edit */
+}
+
+.notification.delete {
+  background-color: #dc3545; /* Red for delete */
+}

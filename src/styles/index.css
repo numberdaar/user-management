@@ -14,6 +14,45 @@ th, td {
   padding: 10px;
   text-align: left;
 }
+/* Pagination styles */
+.pagination {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background-color: #ddd;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  background-color: #f1f1f1;
+}
+
+.pagination .active {
+  font-weight: bold;
+  background-color: #ddd;
+}
+
+.pagination button {
+  font-size: 16px; /* Adjust the font size as needed */
+}
+
+.pagination button:first-of-type {
+  margin-left: 0; /* Remove left margin for the first button */
+}
+
+.pagination button:last-of-type {
+  margin-right: 0; /* Remove right margin for the last button */
+}
 
 /* Media Queries */
 @media (max-width: 768px) {

@@ -19,8 +19,8 @@ const UserList = ({ users, deleteUser, setEditingUser }) => {
           {users.map(user => (
             <tr key={user.id}>
               <td>{user.id}</td>
-              <td>{user.name.split(' ')[0]}</td>
-              <td>{user.name.split(' ')[1]}</td>
+              <td>{user.name.split(' ')[0]}</td> {/* Display first name */}
+              <td>{user.name.split(' ')[1]}</td> {/* Display last name */}
               <td>{user.email}</td>
               <td>{user.company.name}</td>
               <td>

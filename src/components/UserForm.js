@@ -3,14 +3,16 @@ import React, { useState, useEffect } from 'react';
 const UserForm = ({ addUser, editUser, editingUser }) => {
   const [user, setUser] = useState({ id: '', name: '', email: '', company: { name: '' } });
 
+  // Update form fields when editing a user
   useEffect(() => {
     if (editingUser) {
       setUser(editingUser);
     } else {
-      setUser({ id: '', name: '', email: '', company: { name: '' } });
+      setUser({ id: '', name: '', email: '', company: { name: '' } }); // Clear form
     }
   }, [editingUser]);
 
+  // Handle input changes in the form
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'company') {
@@ -20,21 +22,23 @@ const UserForm = ({ addUser, editUser, editingUser }) => {
     }
   };
 
+  // Form submission handler
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation
+    // Basic validation: Check if all fields are filled
     if (!user.name || !user.email || !user.company.name) {
       alert('All fields are required.');
       return;
     }
 
-    // Email validation
+    // Email validation using regular expression
     if (!/\S+@\S+\.\S+/.test(user.email)) {
       alert('Please enter a valid email address.');
       return;
     }
 
+    // If editing a user, call editUser function, otherwise call addUser
     if (editingUser) {
       editUser(user);
     } else {
@@ -52,4 +56,5 @@ const UserForm = ({ addUser, editUser, editingUser }) => {
     </form>
   );
 };
+
 export default UserForm;

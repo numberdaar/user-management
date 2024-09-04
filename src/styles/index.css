@@ -108,7 +108,7 @@ button.edit:hover {
   margin: 0 5px;
   padding: 5px 10px;
   border: 1px solid #ddd;
-  background-color: #f8f8f8;
+  background-color: #007bff;
   cursor: pointer;
   font-size: 14px; /* Adjust the font size */
 }

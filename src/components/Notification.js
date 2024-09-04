@@ -2,8 +2,9 @@ import React from 'react';
 import '../styles/Notification.css';
 
 const Notification = ({ userId, type, onClose }) => {
-  if (!userId) return null;
+  if (!userId) return null; // Do not render if no userId is provided.
 
+  // Determine the message based on the notification type.
   let message;
   switch (type) {
     case 'add':
@@ -20,9 +21,9 @@ const Notification = ({ userId, type, onClose }) => {
   }
 
   return (
-    <div className={`notification ${type}`}>
+    <div className={`notification ${type} show`}>
       <p>{message}</p>
-      <button onClick={onClose}>x</button>
+      <button onClick={onClose} className="close-button">x</button>
     </div>
   );
 };

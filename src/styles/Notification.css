@@ -32,7 +32,6 @@
   cursor: pointer;
 }
 
-/* Different styles for each type */
 .notification.add {
   background-color: #28a745;
 }
@@ -45,8 +44,15 @@
   background-color: #dc3545;
 }
 
-/* Add a fade-in effect */
 .notification.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
 }

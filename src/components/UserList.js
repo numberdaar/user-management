@@ -1,10 +1,12 @@
 import React from 'react';
+import '../styles/UserList.css';
+
 
 const UserList = ({ users, deleteUser, setEditingUser }) => {
   return (
-    <div>
+    <div className="user-list">
       <h2>User List</h2>
-      <table border="1" cellPadding="10" cellSpacing="0">
+      <table>
         <thead>
           <tr>
             <th>ID</th>
@@ -19,13 +21,13 @@ const UserList = ({ users, deleteUser, setEditingUser }) => {
           {users.map(user => (
             <tr key={user.id}>
               <td>{user.id}</td>
-              <td>{user.name.split(' ')[0]}</td> {/* Display first name */}
-              <td>{user.name.split(' ')[1]}</td> {/* Display last name */}
+              <td>{user.name.split(' ')[0]}</td>
+              <td>{user.name.split(' ')[1]}</td>
               <td>{user.email}</td>
               <td>{user.company.name}</td>
               <td>
-                <button onClick={() => setEditingUser(user)}>Edit</button>
-                <button onClick={() => deleteUser(user.id)}>Delete</button>
+                <button onClick={() => setEditingUser(user)} className="edit-button">Edit</button>
+                <button onClick={() => deleteUser(user.id)} className="delete-button">Delete</button>
               </td>
             </tr>
           ))}

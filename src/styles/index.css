@@ -51,6 +51,7 @@ button.cancel:hover {
 
 button.delete {
   background-color: #dc3545;
+  
 }
 
 button.delete:hover {
@@ -59,6 +60,7 @@ button.delete:hover {
 
 button.edit {
   background-color: #ffc107;
+  margin-right: 10px;
 }
 
 button.edit:hover {

@@ -19,24 +19,26 @@ const App = () => {
   }, []);
 
   // Function to handle adding a new user
-  const handleAddUser = (newUser) => {
-    addUser(newUser)
-      .then(response => {
-        setUsers([...users, response.data]);
-        setNotification({ userId: response.data.id, type: 'add' }); // Set notification for added user
-      })
-      .catch(error => console.error('Error adding user:', error));
+  const handleAddUser = async (newUser) => {
+    try {
+      const response = await addUser(newUser);
+      setUsers([...users, response.data]);
+      setNotification({ userId: response.data.id, type: 'add' }); // Set notification for added user
+    } catch (error) {
+      alert('Error adding user. Please try again.');
+    }
   };
 
   // Function to handle editing an existing user
-  const handleEditUser = (updatedUser) => {
-    editUser(updatedUser)
-      .then(() => {
-        setUsers(users.map(user => user.id === updatedUser.id ? updatedUser : user));
-        setEditingUser(null);
-        setNotification({ userId: updatedUser.id, type: 'edit' }); // Set notification for edited user
-      })
-      .catch(error => console.error('Error editing user:', error));
+  const handleEditUser = async (updatedUser) => {
+    try {
+      await editUser(updatedUser);
+      setUsers(users.map(user => user.id === updatedUser.id ? updatedUser : user));
+      setEditingUser(null);
+      setNotification({ userId: updatedUser.id, type: 'edit' }); // Set notification for edited user
+    } catch (error) {
+      alert('Error editing user. Please try again.');
+    }
   };
 
   // Function to handle deleting a user
@@ -90,14 +92,27 @@ const App = () => {
   return (
     <div>
       <h1>User Management</h1>
-      <UserForm addUser={handleAddUser} editUser={handleEditUser} editingUser={editingUser} />
-      <UserList users={currentUsers} deleteUser={handleDeleteUser} setEditingUser={setEditingUser} />
+      <UserForm
+        addUser={handleAddUser}
+        editUser={handleEditUser}
+        editingUser={editingUser}
+        setEditingUser={setEditingUser}
+      />
+      <UserList
+        users={currentUsers}
+        deleteUser={handleDeleteUser}
+        setEditingUser={setEditingUser}
+      />
       <div className="pagination">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           &#9664; {/* Left arrow */}
         </button>
         {[...Array(totalPages).keys()].map(pageNumber => (
-          <button key={pageNumber + 1} onClick={() => paginate(pageNumber + 1)} className={currentPage === pageNumber + 1 ? 'active' : ''}>
+          <button
+            key={pageNumber + 1}
+            onClick={() => paginate(pageNumber + 1)}
+            className={currentPage === pageNumber + 1 ? 'active' : ''}
+          >
             {pageNumber + 1}
           </button>
         ))}

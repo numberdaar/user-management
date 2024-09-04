@@ -14,7 +14,7 @@ export const addUser = (user) => {
 
 // Edit an existing user via API
 export const editUser = (user) => {
-  return axios.put(`${API_URL}/${user.id}`, user);
+  return axios.patch(`${API_URL}/${user.id}`, user);
 };
 
 // Delete a user via API

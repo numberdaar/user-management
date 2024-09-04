@@ -1,5 +1,5 @@
 import React from 'react';
-import './Notification.css';
+import '../styles/Notification.css';
 
 const Notification = ({ userId, type, onClose }) => {
   if (!userId) return null;

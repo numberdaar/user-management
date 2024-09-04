@@ -4,36 +4,49 @@
   right: 20px;
   background-color: #333;
   color: white;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000; /* Ensure the notification is above other content */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
   display: flex;
   align-items: center;
+  transition: opacity 0.5s ease;
+}
+
+.notification.hidden {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .notification p {
   margin: 0;
   margin-right: 10px;
+  flex: 1;
 }
 
 .notification button {
   background: none;
   border: none;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   cursor: pointer;
 }
 
 /* Different styles for each type */
 .notification.add {
-  background-color: #28a745; /* Green for success */
+  background-color: #28a745;
 }
 
 .notification.edit {
-  background-color: #ffc107; /* Yellow for edit */
+  background-color: #ffc107;
 }
 
 .notification.delete {
-  background-color: #dc3545; /* Red for delete */
+  background-color: #dc3545;
+}
+
+/* Add a fade-in effect */
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
 }

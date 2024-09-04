@@ -11,21 +11,106 @@ table {
 }
 
 th, td {
-  padding: 10px;
+  padding: 12px;
   text-align: left;
+  border-bottom: 1px solid #ddd;
 }
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+th {
+  background-color: #f8f8f8;
+}
+
+input, button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.cancel {
+  background-color: #6c757d;
+}
+
+button.cancel:hover {
+  background-color: #5a6268;
+}
+
+button.delete {
+  background-color: #dc3545;
+}
+
+button.delete:hover {
+  background-color: #c82333;
+}
+
+button.edit {
+  background-color: #ffc107;
+}
+
+button.edit:hover {
+  background-color: #e0a800;
+}
+
+/* Container Fluid Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  table, th, td {
+    font-size: 14px;
+  }
+
+  input, button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  form {
+    gap: 15px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+}
+
 /* Pagination styles */
 .pagination {
-  margin: 20px 0;
+  margin: 20px auto; /* Center the pagination */
   text-align: center;
+  padding-top: 20px; /* Add space above pagination */
 }
 
 .pagination button {
   margin: 0 5px;
-  padding: 10px;
+  padding: 5px 10px;
   border: 1px solid #ddd;
   background-color: #f8f8f8;
   cursor: pointer;
+  font-size: 14px; /* Adjust the font size */
 }
 
 .pagination button:hover {
@@ -42,36 +127,13 @@ th, td {
   background-color: #ddd;
 }
 
+/* Adjust button size based on number of pages */
 .pagination button {
-  font-size: 16px; /* Adjust the font size as needed */
-}
-
-.pagination button:first-of-type {
-  margin-left: 0; /* Remove left margin for the first button */
-}
-
-.pagination button:last-of-type {
-  margin-right: 0; /* Remove right margin for the last button */
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-  table, th, td {
-    font-size: 12px;
-  }
-
-  input, button {
-    width: 100%;
-    margin-bottom: 10px;
-  }
+  width: calc(100% / 10 - 10px); /* Adjust based on maximum page count */
 }
 
 @media (max-width: 480px) {
-  table {
-    font-size: 10px;
-  }
-  
-  h1, h2 {
-    font-size: 18px;
+  .pagination button {
+    font-size: 12px; /* Smaller font size on smaller screens */
   }
 }
